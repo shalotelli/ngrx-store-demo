@@ -1,0 +1,22 @@
+<form class="form" #f="ngForm" (ngSubmit)="add(f)">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text"
+      class="form-control"
+      id="name"
+      name="name"
+      [(ngModel)]="item.name"
+      required>
+  </div>
+
+  <div class="form-group" for="description">
+    <label for="name">Description</label>
+    <textarea class="form-control"
+    id="description"
+    name="description"
+    [(ngModel)]="item.description">
+  </textarea>
+  </div>
+
+  <button type="submit" [disabled]="!item.name">Add Item</button>
+</form>

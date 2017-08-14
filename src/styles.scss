@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+.form {
+  .form-group {
+    margin: 10px;
+
+    label {
+      display: inline-block;
+      width: 75px;
+      text-align: right;
+      vertical-align: middle;
+    }
+
+    .form-control {
+      width: 50%;
+    }
+
+    input.form-control {
+      height: 25px;
+    }
+
+    textarea.form-control {
+      height: 80px;
+    }
+
+    textarea {
+      vertical-align: middle;
+    }
+  }
+
+  button[type="submit"] {
+    margin-left: 85px;
+  }
+}

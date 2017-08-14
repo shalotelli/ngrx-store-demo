@@ -1,0 +1,39 @@
+<div class="container">
+  <div *ngIf="!editMode">
+    <h1 [ngClass]="{'complete': item.complete}">{{item.name}}</h1>
+    <p>{{item.description}}</p>
+    <p>Created On: {{item.createdOn | date:'medium'}}</p>
+    <p>Modified On: {{item.modifiedOn | date:'medium'}}</p>
+
+    <button (click)="edit()">Edit</button>
+    <button (click)="toggleComplete()">
+      {{ item.complete ? 'Uncomplete' : 'Complete'}}
+    </button>
+    <button (click)="delete()">Delete</button>
+  </div>
+
+
+  <form class="form" #f="ngForm" (ngSubmit)="update(f)" *ngIf="editMode">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text"
+        class="form-control"
+        id="name"
+        name="name"
+        [(ngModel)]="editableItem.name"
+        required>
+    </div>
+
+    <div class="form-group" for="description">
+      <label for="name">Description</label>
+      <textarea class="form-control"
+      id="description"
+      name="description"
+      [(ngModel)]="editableItem.description">
+    </textarea>
+    </div>
+
+    <button type="submit" [disabled]="!item.name">Update Item</button>
+    <button type="button" (click)="editMode=false">Cancel</button>
+  </form>
+</div>
